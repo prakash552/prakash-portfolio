@@ -1,0 +1,262 @@
+/* Existing Styles (No Change) */
+/* Hero Section */
+.hero {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #2e2e3a, #1e1e2f);
+	padding: 20px;
+	overflow: hidden;
+}
+
+.hero-content {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	max-width: 1200px;
+}
+
+.hero-image-container {
+	flex: 1;
+	min-width: 300px;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.hero-image {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	border: 5px solid #ffd700;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	animation: bounce 2s infinite alternate;
+	object-fit: cover;
+}
+
+.hero-text {
+	flex: 2;
+	padding: 20px;
+	text-align: left;
+}
+
+.hero h1 {
+	font-size: 48px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: #ffd700;
+}
+
+.hero-subtitle {
+	font-size: 24px;
+	margin-bottom: 30px;
+	color: #c0c0c0;
+}
+
+.highlight {
+	color: #ffd700;
+	font-weight: bold;
+	text-shadow: 0 2px 4px rgba(255, 215, 0, 0.8);
+}
+
+.cta-button {
+	background-color: #ffd700;
+	color: #1e1e2f;
+	padding: 12px 24px;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+	transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+	background-color: #e6c200;
+	transform: scale(1.1);
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+	from { transform: translateY(0); }
+	to { transform: translateY(-10px); }
+}
+
+/* Qualifications Section */
+.qualifications {
+	background-color: #2e2e3a;
+	padding: 50px 20px;
+	color: #ffffff;
+	text-align: center;
+	height: 70vh;
+}
+
+.qualifications h2 {
+	font-size: 42px;
+	color: #ffd700;
+	margin-bottom: 30px;
+}
+
+.qualification-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 70px;
+}
+
+.qualification-item {
+	background-color: #1e1e2f;
+	color: hsl(51, 100%, 50%);
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px #ffd700;
+	width: 80%;
+	max-width: 600px;
+	transition: transform 0.3s, opacity 0.3s;
+	opacity: 0;
+	animation: fadeInUp 5s forwards;
+}
+
+.qualification-item:hover {
+	transform: scale(3);
+}
+
+/* Internships Section */
+.internships {
+	background-color: #1e1e2f;
+	padding: 50px 20px;
+	color: #ffffff;
+	text-align: center;
+	height: 70vh;
+}
+
+.internships h2 {
+	font-size: 42px;
+	color: #ffd700;
+	margin-bottom: 30px;
+}
+
+.internship-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 70px;
+}
+
+.internship-item {
+	background-color: #2e2e3a;
+	color: #ffd700;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px #ffd700;
+	width: 80%;
+	max-width: 600px;
+	transition: transform 0.3s, opacity 0.3s;
+	opacity: 0;
+	animation: fadeInUp 3.2s forwards;
+}
+
+.internship-item:hover {
+	transform: scale(1.05);
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+	from { opacity: 0; transform: translateY(20px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Section */
+.contact-section {
+	border-radius: 10px;
+	background-color: #2e2e3a;
+	padding: 80px 70px;
+	color: #ffffff;
+	text-align: center;
+	height: 50vh;
+	margin-top: 100px;
+	border: 2px solid #ffd700;
+	width: 80%;
+	margin-bottom: 2vh;
+	margin-left: 120px;
+}
+
+.contact-section h2 {
+	font-size: 32px;
+	color: #ffd700;
+	margin-bottom: 20px;
+	margin-top: -50px;
+}
+
+.contact-section p {
+	font-size: 18px;
+	color: #c0c0c0;
+	margin-bottom: 30px;
+}
+
+.contact-button {
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #ffd700;
+	padding: 12px 20px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: bold;
+	transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+	background-color: #e6c200;
+}
+
+/* ----------------------------- */
+/* 🚀 Added Styles Below */
+/* ----------------------------- */
+
+/* Services Section */
+
+
+/* Tech Stack Section */
+.tech-stack {
+	background-color: #2e2e3a;
+	padding: 60px 20px;
+	text-align: center;
+	color: #ffffff;
+	height: 40vh;
+}
+
+.tech-stack h2 {
+	font-size: 42px;
+	color: #ffd700;
+	margin-bottom: 30px;
+}
+
+.tech-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+}
+
+.tech-item {
+	background-color: #1e1e2f;
+	border: 1px solid #ffd700;
+	color: #ffd700;
+	padding: 15px 25px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: bold;
+	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+	transition: background-color 0.3s ease;
+	
+}
+
+.tech-item:hover {
+	background-color: #ffd700;
+	color: #1e1e2f;
+	cursor: pointer;
+}
+
+  

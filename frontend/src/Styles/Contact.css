@@ -1,0 +1,169 @@
+.contact-page {
+	font-family: 'Arial', sans-serif;
+	color: #ffffff;
+	background-color: #2e2e3a;
+	padding: 40px 20px;
+	text-align: center;
+	animation: fadeIn 1s ease-in-out; /* Fade-in animation for the page */
+	position: relative; /* To position back button */
+	
+	height: 90vh;
+}
+
+.contact-page h1 {
+	font-size: 36px;
+	color: #ffd700;
+	margin-bottom: 20px;
+	animation: slideIn 1s ease-in-out; /* Slide-in animation for the heading */
+}
+
+.contact-page p {
+	font-size: 18px;
+	color: #c0c0c0;
+	margin-bottom: 40px;
+	animation: fadeIn 1.2s ease-in-out;
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+	width: 100%;
+	padding: 12px;
+	border-radius: 8px;
+	border: none;
+	font-size: 16px;
+	transition: all 0.3s ease; /* Smooth transition for focus effect */
+	outline: none;
+	color: black;
+	font-weight: 400;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+	background-color: #3b3b4b;
+	box-shadow: 0 0 8px #ffd700; /* Glow effect on focus */
+	color: #ffd700;
+}
+
+.contact-form button {
+	background-color: #ffd700;
+	color: #1e1e2f;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+	background-color: #e6c200;
+	transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.status-message {
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	animation: fadeIn 0.5s ease-in-out; /* Fade-in animation for status message */
+}
+
+/* Success Icon */
+.success-icon {
+	font-size: 60px;
+	color: #ffd700;
+	margin-bottom: 15px;
+	animation: popIn 0.6s ease forwards;
+}
+
+/* Spinner inside button */
+.spinner {
+	border: 3px solid #e6c200;
+	border-top: 3px solid transparent;
+	border-radius: 50%;
+	width: 18px;
+	height: 18px;
+	animation: spin 0.8s linear infinite;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Animations */
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+@keyframes popIn {
+	0% { transform: scale(0); opacity: 0; }
+	100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	  transform: translateY(20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+}
+
+@keyframes slideIn {
+	from {
+	  transform: translateX(-50px);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+}
+
+/* Back Button */
+.back-btn {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	background-color: #ffd700;
+	color: #1e1e2f;
+	padding: 10px 16px;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.back-btn:hover {
+	background-color: #e6c200;
+	transform: scale(1.05);
+}
+
+/* Optional: Animation for Back button */
+.back-btn {
+	animation: fadeIn 1s ease-in-out;
+}
+
+.submit-btn {
+	background-color: #ffd700;
+	color: #1e1e2f;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s ease;
+}    
