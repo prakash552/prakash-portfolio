@@ -2,26 +2,26 @@
 
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const User = require('./models/user'); // ✅ Model import
+require('dotenv').config(); // ✅ Load env variables
+const User = require('./models/user');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware
+// ✅ Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/portfolio_contact', {
+// ✅ MongoDB Atlas connection
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 })
 .then(() => console.log('✅ MongoDB Connected'))
-.catch(err => console.log('❌ Mongo Error:', err));
+.catch(err => console.error('❌ MongoDB Connection Error:', err));
 
-// ✅ POST API: Save form data to MongoDB
+// ✅ POST API: Save contact form data
 app.post('/api/add-user', async (req, res) => {
     const { name, email, message } = req.body;
 
@@ -34,23 +34,27 @@ app.post('/api/add-user', async (req, res) => {
         await newUser.save();
         res.status(200).json({ message: 'Form submitted and saved to DB successfully' });
     } catch (error) {
-        console.error('Error saving user:', error);
+        console.error('❌ Error saving user:', error);
         res.status(500).json({ error: 'Error saving to DB' });
     }
 });
 
-// ✅ GET API: Fetch all users from MongoDB
+// ✅ GET API: Fetch all messages
 app.get('/api/get-users', async (req, res) => {
     try {
-        const users = await User.find().sort({ date: -1 }); // latest first
+        const users = await User.find().sort({ date: -1 });
         res.status(200).json(users);
     } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('❌ Error fetching users:', error);
         res.status(500).json({ error: 'Error fetching users' });
     }
+});
+
+// ✅ Root test route
+app.get('/', (req, res) => {
+    res.send('🎉 Backend API is running!');
 });
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
