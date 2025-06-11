@@ -127,3 +127,34 @@
 	transform: scale(1.1);
 	background-color: #e6c200;
 }
+@media (min-width: 356px) and (max-width: 650px) {
+	.about-container {
+		padding: 40px 10px;
+	}
+
+	.about-intro h2 {
+		font-size: 28px;
+	}
+
+	.about-intro p {
+		font-size: 16px;
+	}
+
+	.skills h2 {
+		font-size: 24px;
+	}
+
+	.skill-item {
+		padding: 10px 15px;
+		font-size: 14px;
+	}
+
+	.journey li {
+		padding: 15px 20px;
+		font-size: 16px;
+	}
+
+	.fun-facts p {
+		font-size: 16px;
+	}
+}

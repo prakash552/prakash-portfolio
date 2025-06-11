@@ -3,7 +3,12 @@
 	background-color: #1e1e2f;
 	color: #ffffff;
 	text-align: center;
-	min-height: 100vh;
+	width: 100%;
+	margin: 0 auto;
+	animation: fadeIn 1s ease-in-out; /* Fade-in animation for the page */
+	position: relative; /* To position back button */
+	  height: auto;
+	  
   }
   
   .projects-title {
@@ -55,4 +60,32 @@
   .view-project-button:hover {
 	background-color: #e6c200;
   }
-  
+  @media (min-width: 346px) and (max-width: 650px) {
+	.projects-container {
+	  padding: 40px 10px;
+	  width: 90%;
+	  margin-left: 20px;
+	}
+	.projects-title {
+	  font-size: 28px;
+	  margin-bottom: 20px;
+	}
+	.projects-grid {
+	  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	  gap: 15px;
+	}
+	.project-card {
+	  padding: 15px;
+	  max-width: 300px;
+	}
+	.project-card h2 {
+	  font-size: 20px;
+	}
+	.project-card p {
+	  font-size: 14px;
+	}
+	.view-project-button {
+	  font-size: 14px;
+	  padding: 8px 12px;
+	}
+  }

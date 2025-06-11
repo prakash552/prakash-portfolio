@@ -7,7 +7,7 @@
 	align-items: center;
 	background: linear-gradient(135deg, #2e2e3a, #1e1e2f);
 	padding: 20px;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .hero-content {
@@ -259,4 +259,215 @@
 	cursor: pointer;
 }
 
-  
+  @media (min-width: 361px) and (max-width: 654px) {
+.hero {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #2e2e3a, #1e1e2f);
+	padding: 20px;
+	overflow-x: hidden;
+
+}
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 100%;
+}
+.hero-image-container {
+	flex: 1;
+	min-width: 300px;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+.hero-image {
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	border: 5px solid #ffd700;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	animation: bounce 2s infinite alternate;
+	object-fit: cover;
+}
+.hero-text {
+	flex: 2;
+	padding: 20px;
+	text-align: center;
+}
+.hero h1 {
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: #ffd700;
+}
+.hero-subtitle {
+	font-size: 20px;
+	margin-bottom: 30px;
+	color: #c0c0c0;
+}
+.highlight {
+	color: #ffd700;
+	font-weight: bold;
+	text-shadow: 0 2px 4px rgba(255, 215, 0, 0.8);
+}
+.cta-button {
+	background-color: #ffd700;
+	color: #1e1e2f;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+	transition: background-color 0.3s, transform 0.2s;
+}
+.cta-button:hover {
+	background-color: #e6c200;
+	transform: scale(1.05);
+}
+/* Qualifications Section */
+.qualifications {
+	background-color: #2e2e3a;
+	padding: 40px 20px;
+	color: #ffffff;
+	text-align: center;
+	height: auto;
+}
+.qualifications h2 {
+	font-size: 36px;
+	color: #ffd700;
+	margin-bottom: 20px;
+}
+.qualification-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+.qualification-item {
+	background-color: #1e1e2f;
+	color: hsl(51, 100%, 50%);
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px #ffd700;
+	width: 90%;
+	max-width: 500px;
+	transition: transform 0.3s, opacity 0.3s;
+	opacity: 0;
+	animation: fadeInUp 5s forwards;
+}
+.qualification-item:hover {
+	transform: scale(1.05);
+}
+/* Internships Section */
+.internships {
+	background-color: #1e1e2f;
+	padding: 40px 20px;
+	color: #ffffff;
+	text-align: center;
+	height: auto;
+}
+.internships h2 {
+	font-size: 36px;
+	color: #ffd700;
+	margin-bottom: 20px;
+}
+.internship-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+.internship-item {
+	background-color: #2e2e3a;
+	color: #ffd700;
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 4px 8px #ffd700;
+	width: 90%;
+	max-width: 500px;
+	transition: transform 0.3s, opacity 0.3s;
+	opacity: 0;
+	animation: fadeInUp 3.2s forwards;
+}
+.internship-item:hover {
+	transform: scale(1.05);
+}
+/* Contact Section */
+.contact-section {
+	border-radius: 10px;
+	background-color: #2e2e3a;
+	padding: 60px 40px;
+	color: #ffffff;
+	text-align: center;
+	height: auto;
+	margin-top: 50px;
+	border: 2px solid #ffd700;
+	width: 90%;
+	margin-bottom: 2vh;
+	margin-left: 20px;
+}
+.contact-section h2 {
+	font-size: 28px;
+	color: #ffd700;
+	margin-bottom: 20px;
+	margin-top: -30px;
+}
+.contact-section p {
+	font-size: 16px;
+	color: #c0c0c0;
+	margin-bottom: 20px;
+}
+.contact-button {
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #ffd700;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	transition: background-color 0.3s;
+}
+.contact-button:hover {
+	background-color: #e6c200;
+}
+/* Tech Stack Section */
+.tech-stack {
+	background-color: #2e2e3a;
+	padding: 40px 20px;
+	text-align: center;
+	color: #ffffff;
+	height: auto;
+}
+.tech-stack h2 {
+	font-size: 36px;
+	color: #ffd700;
+	margin-bottom: 20px;
+}
+.tech-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+}
+.tech-item {
+	background-color: #1e1e2f;
+	border: 1px solid #ffd700;
+	color: #ffd700;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+	transition: background-color 0.3s ease;
+}
+.tech-item:hover {
+	background-color: #ffd700;
+	color: #1e1e2f;
+	cursor: pointer;
+}
+  }

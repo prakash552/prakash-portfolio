@@ -5,7 +5,17 @@
 	text-align: center;
 	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
-	bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation for the footer */
+  backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
+  border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
+  box-sizing: border-box; /* Ensures padding is included in width/height calculations */
+
   }
   
   .footer-logo {
@@ -69,5 +79,29 @@ justify-content: left;
 	margin-top: 20px;
 	border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
 	font-size: 15px;
+  }
+  @media (min-width: 356px) and (max-width: 650px) {
+	.footer {
+		padding: 20px 10px;
+		text-align: center;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: auto;
+	}
+	.footer-logo {
+		font-size: 28px;
+	}	
+	.footer-links a {
+		font-size: 16px;
+	}
+	.footer-social a {
+		font-size: 20px;
+	}
+	.footer-copyright {
+		font-size: 14px;
+		padding: 10px 20px;
+	}
   }
   

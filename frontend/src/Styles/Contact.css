@@ -4,13 +4,14 @@
 	background-color: #2e2e3a;
 	padding: 40px 20px;
 	text-align: center;
-	animation: fadeIn 1s ease-in-out; /* Fade-in animation for the page */
+	height: 100vh; /* Full viewport height */
 	position: relative; /* To position back button */
-	
-	height: 90vh;
+	overflow: hidden; /* Prevent overflow for animations */
+
 }
 
 .contact-page h1 {
+	padding-top: 30px;
 	font-size: 36px;
 	color: #ffd700;
 	margin-bottom: 20px;
@@ -167,3 +168,36 @@
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s ease;
 }    
+
+.submit-btn:hover {
+	background-color: #e6c200;
+	transform: scale(1.05); /* Slight zoom on hover */
+}
+
+@media (min-width: 356px) and (max-width: 650px) {
+	.contact-page {
+		padding: 20px 10px;
+		height: auto; /* Adjust height for smaller screens */
+	}
+
+	.contact-page h1 {
+		font-size: 28px; /* Smaller font size for heading */
+	}
+
+	.contact-page p {
+		font-size: 16px; /* Smaller font size for paragraph */
+	}
+
+	.contact-form {
+		width: 90%; /* Full width on smaller screens */
+	}
+
+	.contact-form input,
+	.contact-form textarea {
+		font-size: 14px; /* Smaller font size for inputs */
+	}
+
+	.contact-form button {
+		font-size: 16px; /* Smaller font size for button */
+	}
+}
