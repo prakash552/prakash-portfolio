@@ -15,7 +15,7 @@
   backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
   border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
   box-sizing: border-box; /* Ensures padding is included in width/height calculations */
-
+bottom: 0%;
   }
   
   .footer-logo {
