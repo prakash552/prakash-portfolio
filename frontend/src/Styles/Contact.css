@@ -10,6 +10,7 @@
 
 }
 
+
 .contact-page h1 {
 	padding-top: 30px;
 	font-size: 36px;
@@ -26,12 +27,17 @@
 }
 
 .contact-form {
+	width: 100%;
+	max-width: 500px; /* Limit width for better readability */
+	margin: 0 auto; /* Center the form */
+	background-color: #3b3b4b;
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	animation: fadeIn 1s ease-in-out; /* Fade-in animation for the form */
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 20px;
-	max-width: 600px;
-	margin: 0 auto;
+	gap: 20px; /* Space between form elements */
 }
 
 .contact-form input,
@@ -45,6 +51,7 @@
 	outline: none;
 	color: black;
 	font-weight: 400;
+	box-shadow: 0 0 15px rgba(144, 152, 2, 0.9);
 }
 
 .contact-form input:focus,

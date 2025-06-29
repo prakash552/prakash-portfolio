@@ -10,6 +10,9 @@ const Footer = () => {
         <a href="/about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <a href="/">Privacy Policy</a>
+        <a href="/">Terms of Service</a>
+
       </div>
 
       <div className="footer-social">
@@ -24,11 +27,13 @@ const Footer = () => {
         </a>
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-twitter"></i>
+
         </a>
       </div>
 
       <p className="footer-copyright">
-        © 2025 My Portfolio. All Rights Reserved.
+
+        &copy; {new Date().getFullYear()} Prakash Mishra. All rights reserved.
       </p>
     </footer>
   );

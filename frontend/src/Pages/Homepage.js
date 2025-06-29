@@ -69,14 +69,17 @@ const Home = () => {
           <div className="tech-item">Figma</div>
           <div className="tech-item">Git & GitHub</div>
           <div className="tech-item">Postman</div>
-          <div className="tech-item">Netlify / Vercel</div>
+          <div className="tech-item">Netlify</div>
+           <div className="tech-item">Render</div>
         </div>
       </section>
 
       {/* Contact Section */}
       <section className="contact-section" id="contact">
         <h2>Get in Touch</h2>
-        <p>"Thank you for exploring my work! If you’re looking for a passionate and dedicated developer to bring your ideas to life, I’d love to hear from you. Whether it’s a collaboration, project inquiry, or just a quick hello, feel free to reach out. Let’s create something extraordinary together!"</p>
+        <p>
+          I'm always open to new opportunities and collaborations. If you have a project in mind or just want to say hello, feel free to reach out!
+        </p>
         <Link to="/contact" className="contact-button">Contact Me</Link>
       </section>
     </div>

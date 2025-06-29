@@ -43,6 +43,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      
       {/* Back Button */}
       <button className="back-btn" onClick={() => navigate('/')}>
         ⬅ Back
@@ -50,6 +51,7 @@ const Contact = () => {
 
       {isSubmitted ? (
         <div className="thank-you-screen">
+          {/* Thank You Screen */}
           <div className="success-icon">✔️</div>
           <h1>Thank You!</h1>
           <p>Your message has been successfully sent. I will get back to you soon.</p>
@@ -63,7 +65,7 @@ const Contact = () => {
           <p className="contact-description">
             Feel free to reach out to me for any collaboration, project inquiries, or just to say hello!
           </p>
-
+<div className="form">
           <form className="contact-form" onSubmit={handleSubmit}>
             <input 
               type="text" 
@@ -93,6 +95,9 @@ const Contact = () => {
               {loading ? <span className="spinner"></span> : "Send Message"}
             </button>
           </form>
+          </div>
+          {/* Status Message */}
+        
 
           {status && <p className="status-message">{status}</p>}
         </>

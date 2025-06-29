@@ -14,9 +14,8 @@ const Navbar = () => {
 
       {/* Toggle Icon */}
       <div className="toggle-icon" onClick={handleToggle}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <i className={`fas fa-${isOpen ? 'times' : 'bars' }` }></i> 
+
       </div>
 
       {/* Navbar Links */}
