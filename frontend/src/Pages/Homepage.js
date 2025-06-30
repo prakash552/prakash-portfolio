@@ -3,7 +3,7 @@ import '../Styles/Homepage.css';
 import { Link } from 'react-router-dom';
 import profileImage from '../Assets/me.jpg';
 
-const Home = () => {
+const Homepage = () => {
   return (
     <div className="home-container">
       {/* Hero Section */}
@@ -86,4 +86,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Homepage;

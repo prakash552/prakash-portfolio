@@ -6,10 +6,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-logo">My Portfolio</div>
       <div className="footer-links">
-        <a href="/home">Home</a>
+        <a href="/">Home</a>
         <a href="/about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
         <a href="/">Privacy Policy</a>
         <a href="/">Terms of Service</a>
 
