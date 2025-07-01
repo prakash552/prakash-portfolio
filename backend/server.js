@@ -1,5 +1,4 @@
 // server.js
-
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -9,8 +8,13 @@ const User = require('./models/user');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ✅ Middleware
-app.use(cors());
+// ✅ CORS config (Fix for mobile / Netlify issue)
+app.use(cors({
+    origin: 'https://portfolioprakas.netlify.app',  // ✅ Change this to your Netlify domain
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
 app.use(express.json());
 
 // ✅ MongoDB Atlas connection
