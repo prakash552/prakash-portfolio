@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 // ✅ CORS config (Fix for mobile / Netlify issue)
 app.use(cors({
-    origin: 'https://portfolioprakas.netlify.app/contact',  // ✅ Change this to your Netlify domain
+    origin: 'https://portfolioprakas.netlify.app/',  // ✅ Change this to your Netlify domain
     methods: ['GET', 'POST'],
     credentials: true
 }));
