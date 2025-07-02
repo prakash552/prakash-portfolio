@@ -19,7 +19,7 @@ const Contact = () => {
     const formData = { name, email, message };
 
     try {
-      const response = await fetch('http://localhost:3000/api/add-user', {
+      const response = await fetch('https://prakash-portfolio-m6dg.onrender.com/api/add-user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -32,6 +32,7 @@ const Contact = () => {
         setStatus('Failed to send message. Please try again.');
       }
     } catch (error) {
+      console.error('❌ Frontend Error:', error);
       setStatus('An error occurred. Please try again.');
     } finally {
       setLoading(false);
@@ -43,15 +44,12 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      
-      {/* Back Button */}
       <button className="back-btn" onClick={() => navigate('/')}>
         ⬅ Back
       </button>
 
       {isSubmitted ? (
         <div className="thank-you-screen">
-          {/* Thank You Screen */}
           <div className="success-icon">✔️</div>
           <h1>Thank You!</h1>
           <p>Your message has been successfully sent. I will get back to you soon.</p>
@@ -65,39 +63,37 @@ const Contact = () => {
           <p className="contact-description">
             Feel free to reach out to me for any collaboration, project inquiries, or just to say hello!
           </p>
-<div className="form">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              placeholder="Your Name" 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="input-field"
-            />
-            <input 
-              type="email" 
-              placeholder="Your Email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="input-field"
-            />
-            <textarea 
-              placeholder="please put your mobile number in last text to easily connect " 
-              rows="5" 
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              className="input-field"
-            ></textarea>
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? <span className="spinner"></span> : "Send Message"}
-            </button>
-          </form>
+          <div className="form">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="input-field"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="input-field"
+              />
+              <textarea
+                placeholder="Please put your mobile number in the last text to easily connect"
+                rows="5"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                className="input-field"
+              ></textarea>
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? <span className="spinner"></span> : 'Send Message'}
+              </button>
+            </form>
           </div>
-          {/* Status Message */}
-        
 
           {status && <p className="status-message">{status}</p>}
         </>
