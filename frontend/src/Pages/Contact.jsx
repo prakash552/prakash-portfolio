@@ -19,7 +19,7 @@ const Contact = () => {
     const formData = { name, email, message };
 
     try {
-      const response = await fetch('https://prakash-portfolio-kpqa.onrender.com/api/add-user', {
+      const response = await fetch('https://prakash-portfolio-kpqa.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
