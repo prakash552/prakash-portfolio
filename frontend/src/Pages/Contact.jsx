@@ -19,8 +19,7 @@ const Contact = () => {
     const formData = { name, email, message };
 
     try {
-     const response = await fetch('https://prakash-portfolio-m6dg.onrender.com/api/add-user', {
-
+      const response = await fetch('http://localhost:3000/api/add-user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
