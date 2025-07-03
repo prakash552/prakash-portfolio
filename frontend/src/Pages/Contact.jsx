@@ -13,33 +13,34 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);       // ✅ Moved inside function
+  setStatus('');          // ✅ Moved inside function
 
-    const formData = { name, email, message };
+  try {
+    const res = await fetch('http://localhost:5000/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message }),
+    });
 
-    try {
-      const response = await fetch('http://localhost:3000/api/add-user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+    const data = await res.json();
 
-      if (response.ok) {
-        setStatus('Message sent successfully!');
-        setIsSubmitted(true);
-      } else {
-        setStatus('Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      setStatus('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
+    if (data.success) {
+      setIsSubmitted(true);           // ✅ Show thank you screen
       setName('');
       setEmail('');
       setMessage('');
+    } else {
+      setStatus('Failed to send message. Please try again.');
     }
-  };
+  } catch (error) {
+    console.error("❌ Error:", error);
+    setStatus('Something went wrong.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="contact-page">
