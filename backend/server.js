@@ -6,7 +6,10 @@ require('dotenv').config();
 const app = express();
 
 // 🌐 Middlewares
-app.use(cors());
+app.use(cors({
+  origin: 'https://prakash-portfolio-g3mx.onrender.com', // OR specify your frontend domain here
+  methods: ['GET', 'POST'],
+}));
 app.use(express.json());
 
 // 📦 Routes
