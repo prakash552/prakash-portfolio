@@ -18,11 +18,12 @@ const Contact = () => {
   setStatus('');          // ✅ Moved inside function
 
   try {
-    const res = await fetch('http://localhost:5000/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message }),
-    });
+   fetch("https://portfolio-backend-6idz.onrender.com/api/contact", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name, email, message }),
+});
+
 
     const data = await res.json();
 
