@@ -4,25 +4,43 @@
 	background-color: #1e1e2f;
 	padding: 60px 20px;
 	text-align: center;
+	width:100%;
+	
 }
+.about-intro{
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	border-radius: 12px;
+	background-color: #2e2e3a;
+	padding: 30px;
+	margin: 0 auto;
+	max-width: 1000px;
+	animation: fadeIn 1s ease-in-out;
 
+}
 .about-intro h2 {
 	font-size: 36px;
 	color: #ffd700;
 	margin-bottom: 20px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	animation: slideIn 1s ease-in-out;
+
 }
 
 .about-intro p {
+max-width:1000px;
+	margin: 0 auto;
 	font-size: 18px;
 	line-height: 1.8;
 	color: #c0c0c0;
-	max-width: 800px;
 	margin: 0 auto;
+
 }
 
 .highlight {
 	color: #ffd700;
 	font-weight: bold;
+	
+
 }
 
 .skills {
@@ -33,12 +51,15 @@
 	font-size: 32px;
 	color: #ffd700;
 	margin-bottom: 30px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
 }
 
 .skills-list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	width: 100%;
 	gap: 20px;
 }
 
@@ -50,22 +71,36 @@
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
 	transition: transform 0.3s;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 200px;
+	text-align: center;
+	cursor: pointer;
+
 }
 
 .skill-item:hover {
 	transform: scale(1.1);
+	box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+
 }
 
 /* 🚀 Journey Section */
 .journey {
 	margin-top: 50px;
 	margin-bottom: 50px ;
+	background-color: #1e1e2f;
+	
 }
 
 .journey h2 {
 	font-size: 32px;
 	color: #ffd700;
 	margin-bottom: 20px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	
 }
 
 .journey ul {
@@ -74,62 +109,97 @@
 }
 
 .journey li {
-	background-color: #2e2e3a;
+	background-color: transparent;
 	color: #ffffff;
 	margin: 10px auto;
-	padding: 22px 30px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
-	max-width: 600px;
+	padding: 22px 10px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
+	max-width: 800px;
 	transition: background-color 0.3s;
-	gap: 20px;
+	gap: 30px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
 }
 
 .journey li:hover {
 	background-color: #3a3a4f;
+	box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+	transform: translateY(-5px);
 }
 
 /* 🎉 Fun Facts */
 .fun-facts {
 	margin-top: 50px;
+	background-color: #1e1e2f;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	max-width: 1000px;
+	margin: 0 auto;
+	animation: fadeIn 1s ease-in-out;
+
 }
 
 .fun-facts h2 {
 	font-size: 32px;
 	color: #ffd700;
 	margin-bottom: 15px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	text-align: center;
+
+	
 }
 
 .fun-facts p {
 	color: #c0c0c0;
 	font-size: 18px;
+	margin-bottom: 20px;
+	text-align: center;
+	animation: fadeIn 1.2s ease-in-out;
+ max-width: 800px;
+ 
 }
 
 /* CTA Section */
 .cta {
-	margin-top: 50px;
+	margin-top: 20px;
+	animation: slideIn 1s ease-in-out;
+
 }
 
 .cta button {
 	background-color: #ffd700;
 	color: #1e1e2f;
-	border: none;
 	padding: 15px 30px;
-	font-size: 18px;
+	border: none;
+	border-radius: 8px;
+	font-size: 20px;
 	font-weight: bold;
-	border-radius: 50px;
 	cursor: pointer;
-	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);
-	transition: all 0.3s;
+	transition: background-color 0.3s, transform 0.2s ease;
+	box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+	margin-top: 20px;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+
 }
 
 .cta button:hover {
 	transform: scale(1.1);
 	background-color: #e6c200;
+	box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+
 }
 @media (min-width: 356px) and (max-width: 650px) {
 	.about-container {
 		padding: 40px 10px;
+
 	}
 
 	.about-intro h2 {
