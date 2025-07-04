@@ -92,9 +92,18 @@ const Contact = () => {
               required
               className="input-field"
             ></textarea>
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? <span className="spinner"></span> : "Send Message"}
-            </button>
+           <button type="submit" className="submit-btn" disabled={loading}>
+  {loading ? (
+    <span className="block-loader">
+      <span className="block"></span>
+      <span className="block"></span>
+      <span className="block"></span>
+    </span>
+  ) : (
+    "Send Message"
+  )}
+</button>
+
           </form>
           </div>
           {/* Status Message */}

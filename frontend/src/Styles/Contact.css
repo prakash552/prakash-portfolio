@@ -208,3 +208,37 @@
 		font-size: 16px; /* Smaller font size for button */
 	}
 }
+.block-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 20px;
+}
+
+.block {
+  width: 8px;
+  height: 8px;
+  background-color: white; /* ✨ Change as per your button text color */
+  border-radius: 2px;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.block:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.block:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
