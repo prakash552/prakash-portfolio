@@ -1,20 +1,21 @@
 .projects-container {
 	padding: 60px 20px;
 	background-color: #1e1e2f;
-	color: #ffffff;
 	text-align: center;
 	width: 100%;
 	margin: 0 auto;
 	animation: fadeIn 1s ease-in-out; /* Fade-in animation for the page */
 	position: relative; /* To position back button */
-	  height: auto;
-	  
+	  height: 100vh; /* Full viewport height */
+	
   }
   
   .projects-title {
 	font-size: 36px;
 	color: #ffd700;
 	margin-bottom: 40px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	animation: slideIn 1s ease-in-out; /* Slide-in animation for the title */
   }
   
   .projects-grid {
@@ -22,6 +23,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 20px;
 	justify-items: center;
+	
   }
   
   .project-card {
@@ -32,18 +34,24 @@
 	width: 100%;
 	max-width: 400px;
 	text-align: left;
+	transition: transform 0.3s, box-shadow 0.3s;
+
   }
   
   .project-card h2 {
 	font-size: 24px;
 	color: #ffd700;
 	margin-bottom: 10px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	transition: color 0.3s;
   }
   
   .project-card p {
 	font-size: 16px;
 	color: #c0c0c0;
 	margin-bottom: 20px;
+	line-height: 1.6;
+
   }
   
   .view-project-button {
@@ -55,37 +63,58 @@
 	font-size: 16px;
 	font-weight: bold;
 	transition: background-color 0.3s;
+	  display: inline-block;
+	cursor: pointer;
+	
   }
   
   .view-project-button:hover {
 	background-color: #e6c200;
+
   }
   @media (min-width: 346px) and (max-width: 650px) {
 	.projects-container {
 	  padding: 40px 10px;
 	  width: 90%;
 	  margin-left: 20px;
+	  margin-right: 20px;
+	  animation: fadeIn 1s ease-in-out;
+	
 	}
 	.projects-title {
 	  font-size: 28px;
 	  margin-bottom: 20px;
+	  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	  animation: slideIn 1s ease-in-out;
 	}
 	.projects-grid {
 	  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	  gap: 15px;
+	  justify-items: center;
+
 	}
 	.project-card {
 	  padding: 15px;
 	  max-width: 300px;
+	  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+	  transition: transform 0.2s, box-shadow 0.2s;
 	}
 	.project-card h2 {
 	  font-size: 20px;
+	  margin-bottom: 8px;
+	  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	  transition: color 0.2s;
+
 	}
 	.project-card p {
 	  font-size: 14px;
+	  margin-bottom: 15px;
+	  line-height: 1.4;
 	}
 	.view-project-button {
 	  font-size: 14px;
 	  padding: 8px 12px;
+	  display: inline-block;
+	  cursor: pointer;
 	}
   }

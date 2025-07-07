@@ -16,6 +16,8 @@
   border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
   box-sizing: border-box; /* Ensures padding is included in width/height calculations */
 bottom: 0%;
+  left: 0;
+  right: 0;
   }
   
   .footer-logo {
@@ -89,19 +91,39 @@ justify-content: left;
 		justify-content: center;
 		width: 100%;
 		height: auto;
+		animation: fadeIn 1s ease-in-out; /* Fade-in animation for the footer */
+		backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
+		border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
+		box-sizing: border-box; /* Ensures padding is included in width/height calculations */
+
 	}
 	.footer-logo {
 		font-size: 28px;
+		padding-top: 20px;
+
 	}	
 	.footer-links a {
 		font-size: 16px;
+		margin: 0 13px;
 	}
 	.footer-social a {
 		font-size: 20px;
+		margin: 0 15px;
+
 	}
 	.footer-copyright {
+		width: 100%; /* Ensures it takes full width */
+		text-align: center; /* Centers the text */
+		background: #1e1e2f; /* Darker background for separation */
+		color: #c0c0c0;
 		font-size: 14px;
 		padding: 10px 20px;
+
+		margin-top: 15px;
+		border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
+		font-size: 15px;
+		
+
 	}
   }
   
