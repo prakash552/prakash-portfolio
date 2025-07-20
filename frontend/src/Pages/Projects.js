@@ -13,6 +13,11 @@ const Projects = () => {
       description: 'A full-stack application for buying and selling books. Features include user authentication, book listings, and a shopping cart.',
       link: '#'
     },
+    {
+      title: 'Simon Game',
+      description: 'A web-based version of the classic Simon game. It includes sound effects and a responsive design.',
+      link: 'https://simon-game-sezp.onrender.com'
+    }
    
   ];
 
