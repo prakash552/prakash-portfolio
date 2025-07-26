@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: 'Real-estate Website',
       description: 'A fully responsive real-estate website with a modern design.  Includes features like property listings, search functionality, and user authentication.',
-      link: ''
+      link: 'https://realstate-yowr.onrender.com'
     },
     {
       title: 'Miniliby (Books selling)',
