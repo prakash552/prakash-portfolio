@@ -5,11 +5,25 @@ require('dotenv').config();
 
 const app = express();
 
-// 🌐 Middlewares
+// 🌐 CORS Setup - allow local & production
+const allowedOrigins = [
+  'https://prakash-portfolio-g3mx.onrender.com', // Production
+  'http://localhost:3000' // Local development
+];
+
 app.use(cors({
-  origin: 'https://prakash-portfolio-g3mx.onrender.com', // OR specify your frontend domain here
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST'],
+  optionsSuccessStatus: 200
 }));
+
 app.use(express.json());
 
 // 📦 Routes
@@ -33,5 +47,16 @@ mongoose.connect(MONGO_URI)
     });
   })
   .catch((err) => {
-    console.error("❌ MongoDB Connection Error:", err);
+    console.error("❌ MongoDB Connection Error:", err.message);
+    process.exit(1);
   });
+
+// 🛠 Test DB Endpoint (Optional)
+app.get('/api/test-db', async (req, res) => {
+  try {
+    await mongoose.connection.db.admin().ping();
+    res.json({ success: true, message: "✅ MongoDB connected successfully!" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});

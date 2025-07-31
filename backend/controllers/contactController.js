@@ -2,32 +2,43 @@ const Message = require('../models/Message');
 const nodemailer = require('nodemailer');
 
 exports.handleContactForm = async (req, res) => {
+  console.log("📩 [DEBUG] Contact Form API Hit");
+  console.log("📦 Request Body:", req.body);
+
   const { name, email, message } = req.body;
 
-  console.log("📩 Incoming Form Data:", req.body);
+  // ✅ Check for empty fields
+  if (!name || !email || !message) {
+    console.error("⚠️ Missing required fields");
+    return res.status(400).json({
+      success: false,
+      message: "All fields are required."
+    });
+  }
 
   try {
-    // ✅ Save to MongoDB
+    // ✅ Save message to MongoDB
+    console.log("🗄 [DEBUG] Saving message to MongoDB...");
     const newMsg = new Message({ name, email, message });
     const saved = await newMsg.save();
-    console.log("✅ Saved to DB:", saved);
+    console.log("✅ [DEBUG] Message saved:", saved);
 
-    // ✅ Setup Nodemailer Transporter
+    // ✅ Setup Nodemailer
+    console.log("📧 [DEBUG] Setting up Nodemailer...");
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,   // your gmail id
-        pass: process.env.EMAIL_PASS    // 16-digit app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
       },
-      tls: {
-        rejectUnauthorized: false        // 🔐 Prevent self-signed cert errors on Render
-      }
+      tls: { rejectUnauthorized: false }
     });
 
-    // ✅ Send Email to your inbox
+    // ✅ Send email
+    console.log("📨 [DEBUG] Sending email...");
     const emailResult = await transporter.sendMail({
-      from: email,  // sender's email
-      to: process.env.TO_EMAIL,  // your inbox
+      from: email,
+      to: process.env.TO_EMAIL,
       subject: `📬 New Contact Message from ${name}`,
       text: `
 You have received a new message from your portfolio contact form:
@@ -39,20 +50,20 @@ You have received a new message from your portfolio contact form:
 ${message}
       `
     });
+    console.log("✅ [DEBUG] Email sent:", emailResult.response);
 
-    console.log("📧 Email sent successfully:", emailResult);
-
-    // ✅ Respond to frontend
+    // ✅ Send success response
     res.status(200).json({
       success: true,
       message: 'Message saved to DB and email sent successfully.'
     });
 
   } catch (err) {
-    console.error("❌ SERVER ERROR:", err);
+    console.error("❌ [DEBUG] SERVER ERROR:", err);
     res.status(500).json({
       success: false,
-      message: 'Server error while processing your request.'
+      message: 'Server error while processing your request.',
+      error: err.message // for debugging in frontend
     });
   }
 };
