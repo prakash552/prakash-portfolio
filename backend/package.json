@@ -3,21 +3,21 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server.js",
-    "start": "cross-env NODE_ENV=production node server.js"
+    "dev": " NODE_ENV=development nodemon server.js",
+    "start": " NODE_ENV=production node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.0.1",
     "express": "^5.1.0",
     "mongoose": "^8.16.1",
-    "nodemailer": "^7.0.4"
-  },
-  "devDependencies": {
+    "nodemailer": "^7.0.4",
     "cross-env": "^10.0.0"
   }
+  
 }
