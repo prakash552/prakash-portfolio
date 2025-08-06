@@ -24,7 +24,7 @@ const Homepage = () => {
               A passionate <span className="highlight">Frontend Developer</span> specializing in the
               <span className="highlight"> MERN Stack</span>.
             </p>
-            <a href="../Prakashmishra.pdf" className="cta-button" download="Prakash_Mishra_Resume.pdf">Download My Resume</a>
+            <a href="../Myresume.pdf" className="cta-button" download="Prakash_Mishra_Resume.pdf">Download My Resume</a>
           </div>
         </div>
       </section>
