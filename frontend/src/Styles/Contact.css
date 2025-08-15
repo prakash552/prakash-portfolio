@@ -207,6 +207,10 @@
 	.contact-form button {
 		font-size: 16px; /* Smaller font size for button */
 	}
+	.back-btn{
+padding: 10px 10px;
+				
+	}
 }
 .block-loader {
   display: flex;

@@ -1,23 +1,19 @@
 .footer {
 	background: linear-gradient(135deg, #2e2e3a, #1e1e2f);
 	color: #ffffff;
-	padding: 20px 10px;
+	padding: 5px 10px;
 	text-align: center;
 	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
-	position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	position:relative;
+	bottom: 0;
+
   width: 100%;
   height: auto;
-  animation: fadeIn 1s ease-in-out; /* Fade-in animation for the footer */
-  backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
-  border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
-  box-sizing: border-box; /* Ensures padding is included in width/height calculations */
-bottom: 0%;
-  left: 0;
-  right: 0;
+  animation: fadeIn 1s ease-in-out;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #ffd700; 
+  box-sizing: border-box;
+
   }
   
   .footer-logo {
@@ -33,6 +29,7 @@ justify-content: left;
   
   .footer-links {
 	margin-bottom: 20px;
+	flex-direction: column;
   }
   
   .footer-links a {
@@ -41,6 +38,8 @@ justify-content: left;
 	margin: 0 10px;
 	font-size: 20px;
 	transition: color 0.3s, transform 0.2s;
+	width: 100%;
+
   }
   
   .footer-links a:hover {
@@ -82,29 +81,25 @@ justify-content: left;
 	border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
 	font-size: 15px;
   }
-  @media (min-width: 356px) and (max-width: 650px) {
+  @media (max-width: 750px) {
 	.footer {
-		padding: 20px 10px;
+		padding: 0px 1px;
 		text-align: center;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 		width: 100%;
-		height: auto;
-		animation: fadeIn 1s ease-in-out; /* Fade-in animation for the footer */
-		backdrop-filter: blur(10px); /* Optional: Adds a blur effect to the background */
-		border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
-		box-sizing: border-box; /* Ensures padding is included in width/height calculations */
-
+		
 	}
 	.footer-logo {
 		font-size: 28px;
-		padding-top: 20px;
+		padding-top: 10px;
+margin-bottom: 10px;
 
 	}	
+	.footer-links{
+	
+	}
 	.footer-links a {
 		font-size: 16px;
-		margin: 0 13px;
+		
 	}
 	.footer-social a {
 		font-size: 20px;
@@ -112,16 +107,14 @@ justify-content: left;
 
 	}
 	.footer-copyright {
-		width: 100%; /* Ensures it takes full width */
+		
 		text-align: center; /* Centers the text */
 		background: #1e1e2f; /* Darker background for separation */
 		color: #c0c0c0;
-		font-size: 14px;
-		padding: 10px 20px;
-
+		padding: 5px 5px;
 		margin-top: 15px;
 		border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
-		font-size: 15px;
+		font-size: 16px;
 		
 
 	}

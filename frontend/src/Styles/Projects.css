@@ -5,7 +5,7 @@
 	margin: 0 auto;
 	animation: fadeIn 1s ease-in-out;
 	position: relative;
-	height: 100vh;
+	height: 130vh;
 }
 
 .projects-title {
@@ -17,10 +17,12 @@
 }
 
 .projects-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 20px;
+	display: flex;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 6fr));
+	gap: 40px;
 	justify-items: center;
+
+	flex-wrap: wrap;
 }
 
 .project-card {
