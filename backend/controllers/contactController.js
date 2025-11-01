@@ -23,20 +23,25 @@ exports.handleContactForm = async (req, res) => {
     const saved = await newMsg.save();
     console.log("✅ [DEBUG] Message saved:", saved);
 
-    // ✅ Setup Nodemailer
+    // ✅ Setup Nodemailer with SMTP host and pooling for better performance
     console.log("📧 [DEBUG] Setting up Nodemailer...");
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // TLS
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
       },
+      pool: true,            // Connection pooling enabled
+      maxConnections: 5,
+      maxMessages: 100,
       tls: { rejectUnauthorized: false }
     });
 
-    // ✅ Send email
+    // ✅ Send email asynchronously without await to improve response time
     console.log("📨 [DEBUG] Sending email...");
-    const emailResult = await transporter.sendMail({
+    transporter.sendMail({
       from: email,
       to: process.env.TO_EMAIL,
       subject: `📬 New Contact Message from ${name}`,
@@ -49,10 +54,15 @@ You have received a new message from your portfolio contact form:
 💬 Message:
 ${message}
       `
+    }, (error, info) => {
+      if (error) {
+        console.error("❌ Email sending failed:", error);
+      } else {
+        console.log("✅ [DEBUG] Email sent:", info.response);
+      }
     });
-    console.log("✅ [DEBUG] Email sent:", emailResult.response);
 
-    // ✅ Send success response
+    // ✅ Send success response immediately
     res.status(200).json({
       success: true,
       message: 'Message saved to DB and email sent successfully.'
