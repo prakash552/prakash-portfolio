@@ -4,10 +4,9 @@ import '../Styles/Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-logo">My Portfolio</div>
+      <div className="footer-logo">Prakash Mishra</div>
       <div className="footer-links">
         <a href="/">Home</a>
-        <a href="/about">About</a>
         <a href="/projects">Projects</a>
         <a href="/contact">Contact</a>
         
