@@ -102,15 +102,49 @@ const Homepage = () => {
       </section>
 
         {/* Timeline / Journey Section */}
-        <section className="journey">
-          <h2>My Journey</h2>
-          <ul>
-            <li>Started Web Development in 2023</li>
-            <li>Currently building real-world e-commerce & product-based Web</li>
-            <li>Passionate about creating interactive and responsive web applications</li>
-            <li>Always exploring new technologies and frameworks</li>
-          </ul>
-        </section>
+   <section class="journey-timeline">
+  <h2>My Frontend Journey</h2>
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="content">
+        <span class="dot"></span>
+        <h3>Getting Started</h3>
+        <p>Third-year engineering curiosity led me to HTML, CSS & JavaScript—building the foundations and joining coding communities.</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <span class="dot"></span>
+        <h3>Projects & Practice</h3>
+        <p>Developed small projects and apps, tackling responsive layouts and solving real-world problems at hackathons.</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <span class="dot"></span>
+        <h3>Growth & Challenges</h3>
+        <p>Balanced academics and coding, learning from collaborations, and sharpening design skills in the process.</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <span class="dot"></span>
+        <h3>What's Next?</h3>
+        <p>Eager to master advanced frameworks, join open source, and seek internships for deeper frontend expertise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+{/* project section  */}
+
+ <div className="navigation-row">
+      <p className="nav-text">Tap the button to explore my projects</p>
+      <Link to="/projects" className="btn-nav">
+        View Projects <span className="btn-arrow">→</span>
+      </Link>
+    </div>
+
 
         {/* Fun Facts Section */}
         <section className="fun-facts">

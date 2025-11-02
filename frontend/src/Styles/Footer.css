@@ -1,14 +1,13 @@
 .footer {
-	background: linear-gradient(135deg, #2e2e3a, #1e1e2f);
+	background:#1e1e2f;
 	color: #ffffff;
 	padding: 5px 10px;
 	text-align: center;
 	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
 	position:relative;
-	bottom: 0;
  margin-top: 20px;
   width: 100%;
-  height: auto;
+  height: 30vh;
   animation: fadeIn 1s ease-in-out;
   backdrop-filter: blur(10px);
   border-top: 1px solid #ffd700; 
@@ -29,7 +28,7 @@ justify-content: left;
   
   .footer-links {
 	margin-bottom: 20px;
-	flex-direction: column;
+	
   }
   
   .footer-links a {
@@ -52,9 +51,9 @@ justify-content: left;
   /* Social links wide layout */
   .footer-social {
 	margin: 20px 0;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+	position: relative;
+	right: -400px;
+	bottom: 53px;
   }
   
   .footer-social a {
@@ -94,24 +93,25 @@ justify-content: left;
 margin-bottom: 10px;
 
 	}	
-	.footer-links{
 	
-	}
 	.footer-links a {
 		font-size: 16px;
 		
 	}
-	.footer-social a {
+	.footer-social {
 		font-size: 20px;
 		margin: 0 15px;
-
+		position: relative;
+		right: 0px;
+		bottom: 0px;
+		
 	}
 	.footer-copyright {
 		
 		text-align: center; /* Centers the text */
 		background: #1e1e2f; /* Darker background for separation */
 		color: #c0c0c0;
-		padding: 5px 5px;
+		padding: 10px 5px;
 		margin-top: 15px;
 		border-top: 1px solid #ffd700; /* Optional: Gold border for extra elegance */
 		font-size: 16px;
