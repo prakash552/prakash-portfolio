@@ -27,6 +27,12 @@ const Projects = () => {
           description: 'A web-based version of the classic Simon game. It includes sound effects and a responsive design.',
           link: 'https://simon-game-sezp.onrender.com',
           image: '/simon.png' // Add image path if available
+    },
+    {
+      title: 'Gym Website',
+      description: 'A modern gym website with class schedules, trainer profiles, and membership options.',
+      link: 'https://my-gym-adm1.onrender.com/',
+      image: '/zumba-studio.png' // Add image path if available
     }
   ];
 
