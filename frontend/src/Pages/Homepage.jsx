@@ -1,167 +1,244 @@
-import '../Styles/Homepage.css';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import {
+  Code,
+  Terminal,
+  Cpu,
+  Globe,
+  Github,
+  ExternalLink,
+  GraduationCap,
+  Briefcase,
+  Award,
+  ChevronRight,
+  ArrowRight,
+  Sparkles
+} from 'lucide-react';
 import profileImage from '../Assets/me.jpg';
+import '../Styles/Homepage.css';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
 const Homepage = () => {
+  const skills = [
+    { name: "React.js", icon: <Code size={20} />, color: "#61DAFB" },
+    { name: "JavaScript", icon: <Terminal size={20} />, color: "#F7DF1E" },
+    { name: "MERN Stack", icon: <Cpu size={20} />, color: "#47A248" },
+    { name: "Node.js", icon: <Terminal size={20} />, color: "#339933" },
+    { name: "UI/UX Design", icon: <Sparkles size={20} />, color: "#A855F7" },
+    { name: "Responsive", icon: <Globe size={20} />, color: "#E34F26" },
+  ];
+
+  const services = [
+    {
+      title: "Web Development",
+      desc: "Building scalable, high-performance web applications using modern technologies.",
+      icon: <Code size={32} />
+    },
+    {
+      title: "MERN Integration",
+      desc: "Full-stack solutions with MongoDB, Express, React, and Node.js.",
+      icon: <Cpu size={32} />
+    },
+    {
+      title: "UI/UX Optimization",
+      desc: "Creating intuitive interfaces that provide seamless user experiences.",
+      icon: <Sparkles size={32} />
+    }
+  ];
+
+
   return (
-    <div className="home-container">
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-image-container">
-            <img
-              src={profileImage}
-              alt="Prakash Mishra"
-              className="hero-image"
-            />
+    <div className="homepage-wrapper">
+      {/* Background Orbs */}
+      <div className="glow-orb orb-1"></div>
+      <div className="glow-orb orb-2"></div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="home-container"
+      >
+        {/* Hero Section */}
+        <section className="hero-section">
+          <div className="hero-content">
+            <motion.div variants={itemVariants} className="hero-text-block">
+              <h1>
+                Crafting <span className="highlight">Digital</span> <br />
+                Experiences with <span className="highlight">Precision</span>.
+              </h1>
+              <p className="hero-description">
+                Hi, I'm <span className="bold-text">Prakash Mishra</span>. A Frontend Developer
+                passionate about building high-performance, visually stunning web applications
+                using the <span className="highlight">MERN Stack</span> and modern tools.
+              </p>
+              <div className="hero-actions">
+                <Link to="/projects" className="btn-primary">
+                  View My Work <ArrowRight size={20} />
+                </Link>
+                <a href="../Myresume.pdf" className="btn-secondary" download="Prakash_Mishra_Resume.pdf">
+                  Download CV
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="hero-image-wrapper"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="image-border-glow"></div>
+              <img
+                src={profileImage}
+                alt="Prakash Mishra"
+                className="hero-avatar"
+              />
+            </motion.div>
           </div>
-          <div className="hero-text">
-            <h1>
-              Hi, I'm <span className="highlight">Prakash Mishra</span>
-            </h1>
-            <p className="hero-subtitle">
-              A passionate <span className="highlight">Frontend Developer</span> specializing in the
-              <span className="highlight"> MERN Stack</span>.
+        </section>
+
+
+        {/* Services Section */}
+        <motion.section
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="services-section"
+        >
+          <div className="section-header center">
+            <h2>My Specialized <span className="highlight">Services</span></h2>
+          </div>
+          <div className="services-grid">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="service-card glass-card"
+                whileHover={{ y: -10 }}
+              >
+                <div className="service-icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Skills Grid */}
+        <motion.section
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="skills-grid-section"
+        >
+          <div className="section-header">
+            <h2>Core Expertise</h2>
+            <div className="header-line"></div>
+          </div>
+          <div className="skills-container">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="skill-card glass-card"
+                whileHover={{ y: -5, borderColor: skill.color }}
+              >
+                <div className="skill-icon" style={{ color: skill.color, background: `${skill.color}15` }}>
+                  {skill.icon}
+                </div>
+                <h3>{skill.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* About & Journey */}
+        <div className="about-journey-split">
+          <motion.section
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="about-mini glass-card"
+          >
+            <div className="section-header">
+              <h2><Award className="inline-icon" /> About Me</h2>
+            </div>
+            <p>
+              I specialize in creating interactive and responsive web applications.
+              My focus is on delivering a seamless user experience through clean code
+              and innovative design solutions. Currently pursuing my BCA, I'm constantly
+              exploring the boundaries of frontend technologies.
             </p>
-            <a href="../Myresume.pdf" className="cta-button" download="Prakash_Mishra_Resume.pdf">Download My Resume</a>
-          </div>
+            <Link to="/contact" className="text-link">
+              Let's collaborate <ChevronRight size={16} />
+            </Link>
+          </motion.section>
+
+          <motion.section
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="journey-mini glass-card"
+          >
+            <div className="section-header">
+              <h2><GraduationCap className="inline-icon" /> Education</h2>
+            </div>
+            <div className="timeline-mini">
+              <div className="timeline-point">
+                <div className="point-dot"></div>
+                <div className="point-info">
+                  <h4>BCA Graduate</h4>
+                  <p>KCC Institutes, 2023 - 2026</p>
+                </div>
+              </div>
+              <div className="timeline-point">
+                <div className="point-dot"></div>
+                <div className="point-info">
+                  <h4>Secondary Education</h4>
+                  <p>Shambhu Dayal Inter College, 2023</p>
+                </div>
+              </div>
+            </div>
+          </motion.section>
         </div>
-      </section>
 
-      {/* Qualifications Section */}
-      <section className="qualifications" id="qualifications">
-        <h2>Qualifications</h2>
-        <div className="qualification-list">
-          <div className="qualification-item">
-            <h3>School</h3>
-            <p>Shambhu Dayal Inter College, 2019 - 2023</p>
-          </div>
-          <div className="qualification-item">
-            <h3>College</h3>
-            <p>KCC Institutes, BCA (2023 - 2026)</p>
-          </div>
-        </div>
-      </section>
+        {/* CTA - Final Project Pitch */}
+        <motion.section
+          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="final-cta glass-card"
+        >
+          <div className="cta-glow"></div>
+          <h2>Ready to bring your idea to life?</h2>
+          <p>Let's build something exceptional together.</p>
+          <button onClick={() => window.location.href = "/contact"} className="btn-primary large">
+            Start a Conversation <ArrowRight size={20} />
+          </button>
+        </motion.section>
 
-      {/* Internship Section */}
-      <section className="internships" id="internships">
-        <h2>Internship Experience</h2>
-        <div className="internship-list">
-          <div className="internship-item">
-            <h3>Frontend Developer Intern</h3>
-            <p>None</p>
-          </div>
-          <div className="internship-item">
-            <h3>Web Development Intern</h3>
-            <p>None</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Tools & Technologies Section */}
-     
-
-      <div className="about-container">
-        {/* Introduction Section */}
-        <h2>About Me</h2>
-        <section className="about-intro">
-          <p>
-            Hi, I’m <span className="highlight">Prakash Mishra</span>, a passionate Frontend Developer specializing in creating visually stunning and highly interactive web applications. I have experience working with React.js, JavaScript, CSS, and the MERN stack, bringing modern and responsive designs to life.
-
-            I love crafting seamless user experiences with animations, responsiveness, and clean UI/UX. Currently, I'm working on e-commerce platforms, product pages, and interactive web applications to enhance my skills.
-
-            I’m always eager to learn new technologies and collaborate on exciting projects. Let's build something amazing together! 
-          </p>
-        </section>
-
-        {/* Skills Section */}
-        <section className="skills">
-          <h2>My Skills</h2>
-          <div className="skills-list">
-            <div className="skill-item">HTML5</div>
-            <div className="skill-item">CSS3</div>
-            <div className="skill-item">JavaScript</div>
-            <div className="skill-item">React.js</div>
-            <div className="skill-item">MongoDB</div>
-            <div className="skill-item">Git & GitHub</div>
-            <div className="skill-item">Bootstrap</div>
-            <div className="skill-item">Figma</div>
-          </div>
-        </section>
-
-           <section className="tech-stack">
-        <h2>Tools & Technologies</h2>
-        <div className="tech-list">
-          <div className="tech-item">VS Code</div>
-          <div className="tech-item">Figma</div>
-          <div className="tech-item">Git & GitHub</div>
-          <div className="tech-item">Postman</div>
-          <div className="tech-item">Netlify</div>
-          <div className="tech-item">Render</div>
-        </div>
-      </section>
-
-        {/* Timeline / Journey Section */}
-   <section class="journey-timeline">
-  <h2>My Frontend Journey</h2>
-  <div class="timeline">
-    <div class="timeline-item left">
-      <div class="content">
-        <span class="dot"></span>
-        <h3>Getting Started</h3>
-        <p>Third-year engineering curiosity led me to HTML, CSS & JavaScript—building the foundations and joining coding communities.</p>
-      </div>
-    </div>
-    <div class="timeline-item right">
-      <div class="content">
-        <span class="dot"></span>
-        <h3>Projects & Practice</h3>
-        <p>Developed small projects and apps, tackling responsive layouts and solving real-world problems at hackathons.</p>
-      </div>
-    </div>
-    <div class="timeline-item left">
-      <div class="content">
-        <span class="dot"></span>
-        <h3>Growth & Challenges</h3>
-        <p>Balanced academics and coding, learning from collaborations, and sharpening design skills in the process.</p>
-      </div>
-    </div>
-    <div class="timeline-item right">
-      <div class="content">
-        <span class="dot"></span>
-        <h3>What's Next?</h3>
-        <p>Eager to master advanced frameworks, join open source, and seek internships for deeper frontend expertise.</p>
-      </div>
-    </div>
-  </div>
-</section>
- 
-{/* project section  */}
-
- <div className="navigation-row">
-      <p className="nav-text">Tap the button to explore my projects</p>
-      <Link to="/projects" className="btn-nav">
-        View Projects <span className="btn-arrow">→</span>
-      </Link>
-    </div>
-
-
-        {/* Fun Facts Section */}
-        <section className="fun-facts">
-          <h2>Fun Facts</h2>
-          <p>🎮 Gamer at heart | 💻 Code + Coffee | ✈️ Dreaming to work with a global team</p>
-          <p>🌍 Open to remote opportunities | 📚 Always learning new tech</p>
-
-           <section className="cta">
-          <button onClick={() => window.location.href = "/contact"}>Let's Work Together</button>
-        </section>
-        </section>
-
-        {/* CTA */}
-       
-      </div>
-
-     
+      </motion.div>
     </div>
   );
 };

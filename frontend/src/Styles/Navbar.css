@@ -1,127 +1,118 @@
-/* Basic Reset */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-  }
-  
-  body {
-	font-family: 'Poppins', sans-serif;
-	background-color: #1e1e2f;
-	overflow-x: hidden;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.5rem 2rem;
+  transition: var(--transition-smooth);
+}
 
+.navbar.scrolled {
+  padding: 1rem 2rem;
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--text-main);
+}
+
+.logo-icon {
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.nav-links-desktop {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links-desktop a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  position: relative;
+}
+
+.nav-links-desktop a:hover,
+.nav-links-desktop a.active {
+  color: var(--primary);
+}
+
+.nav-links-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition-smooth);
+}
+
+.nav-links-desktop a:hover::after,
+.nav-links-desktop a.active::after {
+  width: 100%;
+}
+
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.mobile-menu {
+  display: none;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 2rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 0;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.mobile-menu a.active {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none;
   }
-  
-  /* Navbar Styles */
+  .mobile-toggle {
+    display: block;
+  }
+  .mobile-menu {
+    display: flex;
+  }
   .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 20px;
-	background: linear-gradient(135deg, #2e2e3a, #1e1e2f);
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-	color: #ffffff;
-	position: fixed;
-	width: 100%;
-	z-index: 10000;
-	box-shadow: 0 2px 10px rgba(216, 189, 37, 0.5);
+    padding: 1rem;
   }
-  
-  /* Logo */
-  .navbar-logo {
-	font-size: 28px;
-	font-weight: bold;
-	color: #ffd700;
-	font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Navbar Links */
-  .navbar-links {
-	list-style-type: none;
-	display: flex;
-	transition: all 0.3s ease;
-  }
-  
-  .navbar-links li {
-	margin: 0 20px;
-  }
-  
-  .navbar-links a {
-	text-decoration: none;
-	color: #c0c0c0;
-	font-size: 18px;
-	font-weight: 500;
-	transition: color 0.3s, transform 0.2s;
-  }
-  
-  .navbar-links a:hover {
-	color: #ffd700;
-	transform: scale(1.1);
-	text-shadow: 0 0 10px #ffd700;
-  }
-  
-  /* Toggle Icon */
-  .toggle-icon {
-	display: none;
-	flex-direction: column;
-	cursor: pointer;
-	gap: 10px;
-  }
-  
-  .toggle-icon span {
-	width: 25px;
-	height: 3px;
-	background: #ffd700;
-	transition: all 0.3s ease;
-  }
-  
-  /* Responsive Navbar */
- @media (min-width: 300px) and (max-width: 634px) {
-	.toggle-icon {
-	  display: flex;
-	  position: absolute;
-	  top: 20px;
-	  right: 20px;
-	  z-index: 999;
-	overflow-x: hidden;
-	}
-	body{
-	  overflow-x: hidden;
-
-	}
-  
-	.navbar-links {
-	  position: absolute;
-	  right: 0;
-	  z-index: 998;
-	  top: 70px;
-	  right: 0;
-	  background: #1e1e2f;
-	  width: 80%;
-	  height: calc(100vh - 40vh);
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	
-	  opacity: 0;
-	  pointer-events: none;
-	  transition: all 0.3s ease;
-
-	}
-  
-	.navbar-links.active {
-	  transform: translateX(0);
-	  opacity: 1;
-	  pointer-events: auto;
-
-	}
-  
-	.navbar-links li {
-	  margin: 20px 0;
-	}
-  }
-  
-  .fas{
-	color: #ffd700;
-	font-size: 24px;
-  }
+}
