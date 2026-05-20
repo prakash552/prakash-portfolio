@@ -1,100 +1,151 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code, Layout, Smartphone, Laptop, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, Code, Layout, Smartphone, Laptop, ArrowRight, Grid } from 'lucide-react';
 import '../Styles/Projects.css';
 
 const Projects = () => {
   const projectData = [
     {
       title: 'Real-estate Website',
-      description: 'A fully responsive real-estate website with a modern design. Includes features like property listings, search functionality, and user authentication.',
+      description: 'A premium, fully responsive real-estate portal built with the MERN stack. Features comprehensive search listings, robust user authentication, property upload workflows, and an elegant interface.',
       link: 'https://realstate-yowr.onrender.com',
-      tags: ['React', 'Node.js', 'MongoDB', 'MERN'],
+      tags: ['MERN', 'React', 'Node.js', 'MongoDB', 'Full-Stack'],
       icon: <Layout size={24} />,
+      category: 'mern',
       image: '/realestate.png'
     },
-  
     {
-      title: 'E-commerce',
-      description: 'An online platform for buying and selling trendy T-shirts with secure payment and fast delivery.',
+      title: 'Trendy E-commerce',
+      description: 'An online storefront specializing in custom T-shirts. Integrates frictionless navigation, interactive shopping carts, detailed product selections, and a polished checkout flow.',
       link: 'https://modern-main.onrender.com/',
-      tags: ['E-commerce', 'React', 'Payment-Gateway'],
+      tags: ['React', 'E-commerce', 'UI/UX', 'Tailwind'],
       icon: <Smartphone size={24} />,
+      category: 'ecommerce',
       image: '/ecommerce.png'
     },
     {
-      title: 'Play India',
-      description: 'A fully devloped game connection two players',
-      link:'https://playindia-0khi.onrender.com',
-      tags:['React','Node.js','MongoDB','MERN'],
-      icon:<Layout size={24} />,
-      image:'/playindia.png'
+      title: 'Play India Game Link',
+      description: 'A dynamic two-player game network developed to test quick reaction reflexes. Features synchronized scores, real-time feedback, and full MERN integration.',
+      link: 'https://playindia-0khi.onrender.com',
+      tags: ['MERN', 'React', 'Node.js', 'MongoDB', 'Gaming'],
+      icon: <Grid size={24} />,
+      category: 'mern',
+      image: '/playindia.png'
     },
-  
     {
-      title: 'Fitness Gym',
-      description: 'A modern gym website with class schedules, trainer profiles, and membership options.',
+      title: 'Fitness Gym Platform',
+      description: 'A visually striking fitness hub with class calendars, dynamic trainer modules, comprehensive pricing charts, and sleek glassmorphic aesthetics.',
       link: 'https://my-gym-adm1.onrender.com/',
-      tags: ['Fitness', 'UI/UX', 'React'],
+      tags: ['React', 'UI/UX', 'Fitness', 'Responsive'],
       icon: <Laptop size={24} />,
+      category: 'react',
       image: '/zumba-studio.png'
     }
   ];
 
+  const categories = [
+    { id: 'all', label: 'All Projects' },
+    { id: 'mern', label: 'MERN Stack' },
+    { id: 'react', label: 'React Apps' },
+    { id: 'ecommerce', label: 'E-commerce' }
+  ];
+
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const filteredProjects = activeCategory === 'all'
+    ? projectData
+    : projectData.filter(project => project.category === activeCategory);
+
   return (
     <div className="projects-wrapper">
-      <div className="glow-orb orb-projects"></div>
+      {/* Background Orbs */}
+      <div className="glow-orb orb-projects-1"></div>
+      <div className="glow-orb orb-projects-2"></div>
 
       <div className="projects-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="projects-header"
         >
-         
+          <div className="section-badge">
+            <Code size={14} className="sparkle-icon" />
+            <span>My Creations</span>
+          </div>
           <h1>My <span className="highlight">Portfolio</span> Projects</h1>
-          <p>A selection of my best work and side projects.</p>
+          <p>A handpicked gallery of my finest full-stack developments and engineering solutions.</p>
         </motion.div>
 
-        <div className="projects-grid">
-          {projectData.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="project-card glass-card"
+        {/* Project Categories Filter */}
+        <div className="projects-filter-container">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              className={`filter-tab ${activeCategory === cat.id ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat.id)}
             >
-              <div className="project-image-container">
-                {project.image && (
-                  <img src={project.image} alt={project.title} className="project-image" />
-                )}
-                <div className="project-overlay">
-                  <a href={project.link} target="_blank" rel="noreferrer" className="overlay-btn">
-                    <ExternalLink size={20} />
-                  </a>
-                </div>
-              </div>
-
-              <div className="project-info">
-                <div className="project-icon-badge">{project.icon}</div>
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
-
-                <div className="project-tags">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="tag">{tag}</span>
-                  ))}
-                </div>
-
-                <a href={project.link} className="btn-view" target="_blank" rel="noreferrer">
-                  Live Preview <ArrowRight size={16} />
-                </a>
-              </div>
-            </motion.div>
+              {cat.label}
+            </button>
           ))}
         </div>
+
+        {/* Projects Grid with dynamic AnimatePresence */}
+        <motion.div layout className="projects-grid">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 30 }}
+                transition={{ duration: 0.5 }}
+                className="project-card glass-card"
+                whileHover={{ y: -10 }}
+              >
+                <div className="project-image-container">
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="project-image" />
+                  ) : (
+                    <div className="project-image-placeholder">
+                      <Code size={40} className="placeholder-icon" />
+                    </div>
+                  )}
+                  <div className="project-overlay">
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="overlay-btn"
+                      title="Live Demo"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="project-info">
+                  <div className="project-icon-badge">{project.icon}</div>
+                  <h2>{project.title}</h2>
+                  <p>{project.description}</p>
+
+                  <div className="project-tags">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="tag">{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-card-footer">
+                    <a href={project.link} className="btn-view" target="_blank" rel="noreferrer">
+                      Live Preview <ArrowRight size={16} />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </div>
   );

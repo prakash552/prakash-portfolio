@@ -1,0 +1,54 @@
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-trail {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.1);
+  transition: width 0.25s, height 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+/* Hover States */
+.custom-cursor-dot.hovered {
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+}
+
+.custom-cursor-trail.hovered {
+  width: 56px;
+  height: 56px;
+  border-color: var(--accent);
+  background-color: rgba(168, 85, 247, 0.05); /* very light purple glass overlay */
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+}
+
+/* Hidden States */
+.custom-cursor-dot.hidden,
+.custom-cursor-trail.hidden {
+  opacity: 0;
+}
+
+/* Prevent cursor lag transitions on fast movement but animate sizes */
+.custom-cursor-dot {
+  transition: opacity 0.15s ease-out, transform 0s, width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-trail {
+  transition: opacity 0.15s ease-out, transform 0s, width 0.25s, height 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}

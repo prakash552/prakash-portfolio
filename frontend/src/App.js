@@ -5,11 +5,13 @@ import Footer from './Components/Footer';
 import Homepage from './Pages/Homepage'; // ✅ Match with component export
 import Contact from './Pages/Contact';
 import Projects from './Pages/Projects';
+import CustomCursor from './Components/CustomCursor';
 
 function App() {
   return (
     <Router>
       <div>
+        <CustomCursor />
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} /> {/* ✅ Updated here */}
@@ -23,3 +25,4 @@ function App() {
 }
 
 export default App;
+

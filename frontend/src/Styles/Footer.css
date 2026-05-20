@@ -1,7 +1,7 @@
 .footer-modern {
   background: var(--bg-main);
   border-top: 1px solid var(--glass-border);
-  padding: 8rem 0 2rem;
+  padding: 4rem 0 2rem;
   position: relative;
   overflow: hidden;
   z-index: 10;
@@ -29,7 +29,7 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
   gap: 4rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 /* Brand Column */
@@ -198,7 +198,7 @@
 /* Footer Bottom Bar */
 .footer-bottom-bar {
   border-top: 1px solid var(--glass-border);
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
   background: rgba(0, 0, 0, 0.1);
 }
 
